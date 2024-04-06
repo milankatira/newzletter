@@ -1,4 +1,5 @@
 import Analytics from '@/components/Home/analytics'
+import Emaileditor from '@/components/common/EmailEditor'
 import ApexChart from '@/components/common/graph'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { Button } from '@/components/ui/button'
@@ -15,7 +16,7 @@ import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 export default function Home() {
   return (
-    <Sidebar>
+    <div>
       <Tabs defaultValue="overview" className="w-full p-4">
         <TabsList className="grid w-full grid-cols-6">
           <TabsTrigger value="overview">overview</TabsTrigger>
@@ -66,8 +67,9 @@ export default function Home() {
           </Card>
         </TabsContent>
       </Tabs>
-      <ApexChart />
-      <Analytics />
-    </Sidebar>
+      {/* <ApexChart /> */}
+      {/* <Analytics /> */}
+      <Emaileditor subjectTitle="milan k" />
+    </div>
   )
 }

@@ -6,17 +6,17 @@ import { connectToDB } from '@/utils/db'
 export const saveEmail = async ({
   title,
   content,
-  newsLetterOwnerId,
+  user_id,
 }: {
   title: string
   content: string
-  newsLetterOwnerId: string
+  user_id: string
 }) => {
   try {
     await connectToDB()
     const email = await Email.findOne({
       title,
-      newsLetterOwnerId,
+      user_id,
     })
 
     if (email) {
@@ -28,7 +28,7 @@ export const saveEmail = async ({
       await Email.create({
         title,
         content,
-        newsLetterOwnerId,
+        user_id,
       })
       return { message: 'Email saved successfully!' }
     }

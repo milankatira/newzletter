@@ -10,8 +10,9 @@ const emailSchema = new Schema(
     content: {
       type: String,
     },
-    newsLetterOwnerId: {
-      type: String,
+    user_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'users',
     },
   },
   { timestamps: true },
