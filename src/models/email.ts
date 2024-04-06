@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
-const { Schema } = mongoose;
+const { Schema } = mongoose
 
 const emailSchema = new Schema(
   {
@@ -14,8 +14,8 @@ const emailSchema = new Schema(
       type: String,
     },
   },
-  { timestamps: true }
-);
+  { timestamps: true },
+)
 
-const Email = mongoose.models.Emails || mongoose.model("Emails", emailSchema);
-export default Email;
+const Email = mongoose.models.Emails || mongoose.model('Emails', emailSchema)
+export default Email
