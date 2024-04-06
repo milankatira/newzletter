@@ -50,7 +50,7 @@ function SignIn() {
      toast({
       title:resp.message
      })
-        localStorage.setItem(resp.token)
+        localStorage.setItem("token",resp.token)
     }  catch (error:any) {
       console.log(error);
       // toast.error(error.message);
