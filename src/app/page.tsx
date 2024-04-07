@@ -1,3 +1,4 @@
+'use client'
 import Analytics from '@/components/Home/analytics'
 import Emaileditor from '@/components/common/EmailEditor'
 import { DataTableDemo } from '@/components/common/Table'
@@ -15,7 +16,16 @@ import {
 
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { sendMail } from '@/utils/sendmail'
+import { useEffect } from 'react'
 export default function Home() {
+  useEffect(() => {
+    sendMail(
+      'Sending with SendGrid is Fun',
+      'milankatira26@gmail.com',
+      '<strong>and easy to do anywhere, even with Node.js</strong>'
+    )
+  },[])
   return (
     <div>
       <Tabs defaultValue="overview" className="w-full p-4">
