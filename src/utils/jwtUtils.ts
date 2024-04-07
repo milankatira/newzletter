@@ -17,17 +17,16 @@ export const createJWTToken = (userData: any): string => {
   }
 }
 
-
 export const verifyJWTToken = async (token: string) => {
   try {
-    console.log(token, "token", getConfig('jwt_key'))
+    console.log(token, 'token', getConfig('jwt_key'))
     //@ts-ignore
-    const decoded = await jwt.verify(token, getConfig('jwt_key'));
+    const decoded = await jwt.verify(token, getConfig('jwt_key'))
 
-    console.log(decoded,"decoded")
-    return decoded;
+    console.log(decoded, 'decoded')
+    return decoded
   } catch (error) {
-    console.log(error,"error")
-    throw new Error('Invalid or expired token');
+    console.log(error, 'error')
+    throw new Error('Invalid or expired token')
   }
-};
+}

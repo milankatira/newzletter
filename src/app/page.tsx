@@ -1,5 +1,6 @@
 import Analytics from '@/components/Home/analytics'
 import Emaileditor from '@/components/common/EmailEditor'
+import { DataTableDemo } from '@/components/common/Table'
 import ApexChart from '@/components/common/graph'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { Button } from '@/components/ui/button'
@@ -67,9 +68,10 @@ export default function Home() {
           </Card>
         </TabsContent>
       </Tabs>
-      {/* <ApexChart /> */}
-      {/* <Analytics /> */}
+      <ApexChart />
+      <Analytics />
       <Emaileditor subjectTitle="milan k" />
+      <DataTableDemo />
     </div>
   )
 }

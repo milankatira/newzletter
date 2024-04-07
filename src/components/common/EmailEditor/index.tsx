@@ -13,7 +13,7 @@ import { useToast } from '@/components/ui/use-toast'
 // import { sendEmail } from "@/shared/utils/email.sender";
 
 const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
-    const { toast } = useToast()
+  const { toast } = useToast()
   const [loading, setLoading] = useState(true)
   const [jsonData, setJsonData] = useState<any | null>(DefaultJsonData)
   //   const { user } = useClerk();
@@ -27,16 +27,16 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
       const { design, html } = data
 
       console.log(JSON.stringify(design), 'design')
-        setJsonData(design)
-    //    const userData=await verifyJWTToken(localStorage.getItem("token") as unknown as string)
-        await saveEmail({
-            user_id: "66111e789e7b80d48870cd9f",
-          title: subjectTitle,
-          content: html,
-        }).then((res) => {
-          toast({title:"Email send successfully"});
-          history.push("/dashboard/write");
-        });
+      setJsonData(design)
+      //    const userData=await verifyJWTToken(localStorage.getItem("token") as unknown as string)
+      await saveEmail({
+        user_id: '66111e789e7b80d48870cd9f',
+        title: subjectTitle,
+        content: html,
+      }).then((res) => {
+        toast({ title: 'Email send successfully' })
+        history.push('/dashboard/write')
+      })
     })
   }
 
