@@ -1,6 +1,6 @@
-import * as React from "react"
+import * as React from 'react'
 
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -8,11 +8,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
-export function CardWithForm({title,settitle}:{title:string,settitle:(value: string) => void}) {
+export function CardWithForm({
+  title,
+  settitle,
+}: {
+  title: string
+  settitle: (value: string) => void
+}) {
   return (
     <Card className="w-[350px]">
       <CardHeader>
@@ -24,7 +30,12 @@ export function CardWithForm({title,settitle}:{title:string,settitle:(value: str
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="Name of your project"  value={title} onChange={(e)=>settitle(e.target.value)}/>
+              <Input
+                id="name"
+                placeholder="Name of your project"
+                value={title}
+                onChange={(e) => settitle(e.target.value)}
+              />
             </div>
           </div>
         </form>

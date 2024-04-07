@@ -84,8 +84,7 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
     <>
       {/* {!loading && ( */}
       <div className="w-full h-[90vh] relative">
-        <div className='flex flex-row'>
-
+        <div className="flex flex-row">
           <EmailEditor minHeight={'80vh'} ref={emailEditorRef} onReady={onReady} />
           <CardWithForm title={title} settitle={settitle} />
         </div>

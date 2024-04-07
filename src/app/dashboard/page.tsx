@@ -30,8 +30,18 @@ export default function Home() {
   }, [])
   return (
     <Sidebar>
+      <div className='p-4'>
+
+      <h1 className='text-3xl font-bold'>
+      Hi milan 👋
+      </h1>
+      <p className='text-slate-500'>
+
+Here's how your publication is doing
+      </p>
+      </div>
       <Tabs defaultValue="overview" className="w-full p-4">
-        <TabsList className="grid w-full grid-cols-6">
+        <TabsList className="grid w-full grid-cols-6 bg-gray-100">
           <TabsTrigger value="overview">overview</TabsTrigger>
           <TabsTrigger value="audience">Audience</TabsTrigger>
           <TabsTrigger value="engagement">Engagement</TabsTrigger>

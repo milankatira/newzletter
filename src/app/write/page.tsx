@@ -30,9 +30,8 @@ export default function Home() {
   }, [])
   return (
     <>
-
       {/* <Analytics /> */}
-          <Emaileditor subjectTitle="new post" />
+      <Emaileditor subjectTitle="new post" />
       {/* <DataTableDemo /> */}
     </>
   )
