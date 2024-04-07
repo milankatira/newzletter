@@ -23,7 +23,7 @@ export const addSubscriber = async ({
       return { message: 'Subscriber added successfully!' }
     }
   } catch (error) {
-    console.log(error,"error ")
+    console.log(error, 'error ')
     throw new Error('Failed to add subscriber')
   }
 }

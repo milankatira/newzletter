@@ -25,6 +25,7 @@ const subscriberSchema: Schema = new Schema({
   },
 })
 
-const Subscriber = mongoose.models.Subscriber || mongoose.model<SubscriberDocument>('Subscriber', subscriberSchema)
+const Subscriber =
+  mongoose.models.Subscriber || mongoose.model<SubscriberDocument>('Subscriber', subscriberSchema)
 
 export default Subscriber

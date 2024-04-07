@@ -42,7 +42,6 @@ export type Subscriber = {
 }
 
 export const columns: ColumnDef<Subscriber>[] = [
-
   {
     accessorKey: 'email',
     header: 'Email',
@@ -62,7 +61,7 @@ export function SubscriberDataTable() {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-          const result: any = await getAllSubscribers({ page, limit })
+        const result: any = await getAllSubscribers({ page, limit })
 
         setData(result.data)
         setTotalCount(result.totalCount)

@@ -58,6 +58,7 @@ export default function Home() {
             </CardFooter>
           </Card>
         </TabsContent>
+
         <TabsContent value="password">
           <Card>
             <CardHeader>
@@ -79,18 +80,22 @@ export default function Home() {
             </CardFooter>
           </Card>
         </TabsContent>
-          <TabsContent value="overview">
 
-      <ApexChart />
-              </TabsContent>
-              <TabsContent value="audience">
-<SubscriberDataTable/>
-              </TabsContent>
+        <TabsContent value="overview">
+          <Analytics />
+          <ApexChart />
+        </TabsContent>
 
-              <TabsContent value="engagement">
-<BarChart/>
-                  </TabsContent>
-          </Tabs>
+        <TabsContent value="audience">
+          <Analytics />
+          <SubscriberDataTable />
+        </TabsContent>
+
+        <TabsContent value="engagement">
+          <Analytics />
+          <BarChart />
+        </TabsContent>
+      </Tabs>
       {/* <Analytics /> */}
       {/* <Emaileditor subjectTitle="milan k" /> */}
       {/* <DataTableDemo /> */}

@@ -1,6 +1,6 @@
 'use client'
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
-import Link from 'next/link';
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 export function Sidebar({
@@ -8,14 +8,14 @@ export function Sidebar({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const router = useRouter();
+  const router = useRouter()
   return (
     // <div className="max-w-full flex flex-col">
     <ResizablePanelGroup direction="horizontal" className='h-screen"'>
       <ResizablePanel defaultSize={25} className="min-w-[4rem] h-screen">
         <div className="flex h-full items-start justify-center p-4">
           <Link
-            href='/dashboard'
+            href="/dashboard"
             //  legacyBehavior
             // type="button" onClick={() => router.push('/dashboard')}
             className="flex flex-row p-4 hover:bg-slate-100 w-full items-center gap-4"
