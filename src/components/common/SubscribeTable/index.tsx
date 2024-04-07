@@ -1,5 +1,3 @@
-'use client'
-
 import * as React from 'react'
 import { CaretSortIcon, ChevronDownIcon, DotsHorizontalIcon } from '@radix-ui/react-icons'
 import {
@@ -35,108 +33,37 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { getAllEmailsWithPagination } from '@/action/email/getAll.email'
+import { getAllSubscribers } from '@/action/subscribe/getallSubscriber.subscriber'
 
-// const data: Payment[] = [
-//   {
-//     id: "m5gr84i9",
-//     amount: 316,
-//     status: "success",
-//     email: "ken99@yahoo.com",
-//   },
-//   {
-//     id: "3u1reuv4",
-//     amount: 242,
-//     status: "success",
-//     email: "Abe45@gmail.com",
-//   },
-//   {
-//     id: "derv1ws0",
-//     amount: 837,
-//     status: "processing",
-//     email: "Monserrat44@gmail.com",
-//   },
-//   {
-//     id: "5kma53ae",
-//     amount: 874,
-//     status: "success",
-//     email: "Silas22@gmail.com",
-//   },
-//   {
-//     id: "bhqecj4p",
-//     amount: 721,
-//     status: "failed",
-//     email: "carmella@hotmail.com",
-//   },
-// ]
-
-export type Payment = {
-  id: string
-  amount: number
-  status: 'pending' | 'processing' | 'success' | 'failed'
+export type Subscriber = {
+  _id: string
   email: string
+  user_id: string
 }
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Subscriber>[] = [
+
   {
-    id: 'select',
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate')
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: 'title',
-    header: 'title',
-    cell: ({ row }) => <div className="capitalize">{row.getValue('title')}</div>,
-  },
-  {
-    accessorKey: 'createdAt',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Email
-          <CaretSortIcon className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-    cell: ({ row }) => (
-      <div className="lowercase">{new Date(row.getValue('createdAt')).toLocaleString()}</div>
-    ),
+    accessorKey: 'email',
+    header: 'Email',
+    cell: ({ row }) => <div className="capitalize">{row.getValue('email')}</div>,
   },
 ]
 
-export function DataTableDemo() {
+export function SubscriberDataTable() {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = React.useState({})
-  const [data, setData] = React.useState([])
+  const [data, setData] = React.useState<Subscriber[]>([])
   const [page, setPage] = React.useState(1)
   const [limit, setLimit] = React.useState(10)
   const [totalCount, setTotalCount] = React.useState<number>()
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const result: any = await getAllEmailsWithPagination({ page, limit })
-        console.log(result, 'result')
+          const result: any = await getAllSubscribers({ page, limit })
+
         setData(result.data)
         setTotalCount(result.totalCount)
       } catch (error) {
@@ -146,6 +73,7 @@ export function DataTableDemo() {
 
     fetchData()
   }, [page])
+
   const table = useReactTable({
     data,
     columns,
@@ -164,13 +92,14 @@ export function DataTableDemo() {
       rowSelection,
     },
   })
+
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter title..."
-          value={(table.getColumn('title')?.getFilterValue() as string) ?? ''}
-          onChange={(event) => table.getColumn('title')?.setFilterValue(event.target.value)}
+          placeholder="Filter email..."
+          value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
+          onChange={(event) => table.getColumn('email')?.setFilterValue(event.target.value)}
           className="max-w-sm"
         />
         <DropdownMenu>

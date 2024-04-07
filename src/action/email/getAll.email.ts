@@ -13,20 +13,20 @@ export const getAllEmailsWithPagination = async ({
   try {
     await connectToDB()
     const emailsPromise = Email.find()
-    .skip((page - 1) * limit)
-    .limit(limit)
-    .exec();
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .exec()
 
-  // Query to count total number of emails
-  const totalEmailsPromise = Email.countDocuments().exec();
+    // Query to count total number of emails
+    const totalEmailsPromise = Email.countDocuments().exec()
 
-  // Execute both queries concurrently
-  const [data, totalEmails] = await Promise.all([emailsPromise, totalEmailsPromise]);
+    // Execute both queries concurrently
+    const [data, totalEmails] = await Promise.all([emailsPromise, totalEmailsPromise])
 
-  return {
-    data,
-    totalCount: totalEmails
-  };
+    return {
+      data,
+      totalCount: totalEmails,
+    }
   } catch (error) {
     console.log(error)
   }

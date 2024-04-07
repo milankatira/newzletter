@@ -1,7 +1,7 @@
 const _config = {
   mongoUrl: process.env.NEXT_PUBLIC_MONGO_URL,
   jwt_key: process.env.NEXT_PUBLIC_JWT_KEY,
-  sendGrid_Api: process.env.SENDGRID_API_KEY
+  sendGrid_Api: process.env.SENDGRID_API_KEY,
 }
 
 export const getConfig = (key: keyof typeof _config) => {

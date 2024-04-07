@@ -1,8 +1,10 @@
 'use client'
 import Analytics from '@/components/Home/analytics'
 import Emaileditor from '@/components/common/EmailEditor'
+import { SubscriberDataTable } from '@/components/common/SubscribeTable'
 import { DataTableDemo } from '@/components/common/Table'
 import ApexChart from '@/components/common/graph'
+import BarChart from '@/components/common/graph/barChart'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { Button } from '@/components/ui/button'
 import {
@@ -77,11 +79,21 @@ export default function Home() {
             </CardFooter>
           </Card>
         </TabsContent>
-      </Tabs>
+          <TabsContent value="overview">
+
       <ApexChart />
-      <Analytics />
-      <Emaileditor subjectTitle="milan k" />
-      <DataTableDemo />
+              </TabsContent>
+              <TabsContent value="audience">
+<SubscriberDataTable/>
+              </TabsContent>
+
+              <TabsContent value="engagement">
+<BarChart/>
+                  </TabsContent>
+          </Tabs>
+      {/* <Analytics /> */}
+      {/* <Emaileditor subjectTitle="milan k" /> */}
+      {/* <DataTableDemo /> */}
     </Sidebar>
   )
 }
