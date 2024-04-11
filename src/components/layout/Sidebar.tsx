@@ -17,7 +17,7 @@ export function Sidebar({
   const router = useRouter()
   return (
     // <div className="max-w-full flex flex-col">
-    <ResizablePanelGroup direction="horizontal" className='h-screen bg-gray-50'>
+    <ResizablePanelGroup direction="horizontal" className="h-screen bg-gray-50">
       <ResizablePanel defaultSize={25} className="min-w-[4rem] h-screen bg-slate-800 text-white">
         <div className="flex h-full items-start justify-center p-4 flex-col">
           <Link
@@ -39,8 +39,6 @@ export function Sidebar({
           >
             <p>DashBoard</p>
           </Link>
-
-
         </div>
       </ResizablePanel>
       <ResizableHandle withHandle />

@@ -30,15 +30,15 @@ export default function Home() {
   }, [])
   return (
     <Sidebar>
-      <div className='p-4'>
+      <div className="p-4 flex flex-row justify-between">
+        <div>
 
-      <h1 className='text-3xl font-bold'>
-      Hi milan 👋
-      </h1>
-      <p className='text-slate-500'>
-
-Here's how your publication is doing
-      </p>
+        <h1 className="text-3xl font-bold">Hi milan 👋</h1>
+        <p className="text-slate-500">Here's how your publication is doing</p>
+        </div>
+        <div>
+          <Button>Get Started</Button>
+        </div>
       </div>
       <Tabs defaultValue="overview" className="w-full p-4">
         <TabsList className="grid w-full grid-cols-6 bg-gray-100">
