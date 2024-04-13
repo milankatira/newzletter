@@ -19,13 +19,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { sendMail } from '@/utils/sendmail'
 import { useEffect } from 'react'
 export default function Home() {
-  useEffect(() => {
-    sendMail(
-      'Sending with SendGrid is Fun',
-      'milankatira26@gmail.com',
-      '<strong>and easy to do anywhere, even with Node.js</strong>',
-    )
-  }, [])
+
   return (
     <Sidebar>
       <Tabs defaultValue="overview" className="w-full p-4">

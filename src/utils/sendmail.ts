@@ -16,6 +16,7 @@ export async function sendMail(subject: string, toEmail: string, otpText: string
       to: 'milan@instaservice.com',
       subject: subject,
       text: otpText,
+      html: `<p>This is your email content</p><img src="http://localhost:3000/trackingpixel.png?emailId=milan@instaservice.com" alt="" style="display:none">`,
       dsn: {
         id: 'some random message specific id',
         return: 'headers',
