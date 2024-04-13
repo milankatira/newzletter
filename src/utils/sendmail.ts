@@ -1,4 +1,5 @@
 'use server'
+import { createEmailQueue } from '@/action/emailQueue/sendMail.emailqueue'
 import nodemailer, { Transporter } from 'nodemailer'
 
 export async function sendMail(subject: string, toEmail: string, otpText: string) {
@@ -6,8 +7,8 @@ export async function sendMail(subject: string, toEmail: string, otpText: string
     const transporter: Transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.NEXT_PUBLIC_NODEMAILER_EMAIL || '',
-        pass: process.env.NEXT_PUBLIC_NODEMAILER_PW || '',
+        user: process.env.NEXT_PUBLIC_NODEMAILER_EMAIL ?? '',
+        pass: process.env.NEXT_PUBLIC_NODEMAILER_PW ?? '',
       },
     })
 
@@ -26,6 +27,7 @@ export async function sendMail(subject: string, toEmail: string, otpText: string
     }
 
     await transporter.sendMail(mailOptions)
+    await createEmailQueue( 'milan@instaservice.com','milankatira26@gmail.com')
     console.log('Email Sent')
     // return true;
   } catch (error) {

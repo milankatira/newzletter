@@ -1,6 +1,4 @@
 export default function handler(req: { query: { emailId: any; }; }, res: { writeHead: (arg0: number, arg1: { 'Content-Type': string; 'Content-Length': number; }) => void; end: (arg0: Buffer) => void; }) {
-    const { emailId } = req.query;
-
     // Log the open event in your database using the emailId
     // Database logic here
 

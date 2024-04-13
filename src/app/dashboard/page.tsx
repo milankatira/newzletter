@@ -92,12 +92,12 @@ export default function Home() {
         </TabsContent>
 
         <TabsContent value="overview">
-          <Analytics />
+          {/* <Analytics /> */}
           <ApexChart />
         </TabsContent>
 
         <TabsContent value="audience">
-          <Analytics />
+          {/* <Analytics /> */}
           <SubscriberDataTable />
         </TabsContent>
 

@@ -16,8 +16,6 @@ import {
 
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { sendMail } from '@/utils/sendmail'
-import { useEffect } from 'react'
 export default function Home() {
 
   return (
